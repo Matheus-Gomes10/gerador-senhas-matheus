@@ -71,13 +71,17 @@ let entropia = tamanhoSenha*Math.log2(tamanhoSenha);
 
 
 
-    forcaSenha.classList.remove('fraca','media','forte');
-    if (tamanhoSenha > 11){
+    entropia.classList.remove('fraca','media','forte');
+    if (entropia > 11){
         forcaSenha.classList.add('forte');
-    } else if (tamanhoSenha > 5 && tamanhoSenha < 12) {
+    } else if (entropia > 5 && entropia < 12) {
         forcaSenha.classList.add('media');
-    } else if (tamanhoSenha <= 5) {
+    } else if (entropia <= 5) {
         forcaSenha.classList.add('fraca');
     }
+
+    const valorEntropia = document.querySelector('.entropia');
+    valorEntropia.textContent = "Um computador pode levar até "+
+    Math.floor(2**entropia/(100e6*60*60*24)) + " dias para descobrir essa senha."; 
 
 }
